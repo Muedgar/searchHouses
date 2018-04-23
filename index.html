@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+ <title>
+    searchHouses
+ </title>
+ <style>
+  .inputStyle {
+    width: 1000px;
+    height: 100px;
+    text-align: center;
+    font-size: 20px;
+    margin: 15px;
+  }
+  .buttonStyle {
+    width: 200px;
+    height: 50px;
+    border: #0d8c6e;
+    background-color: #0d8c6e;
+    color: white;
+    font-size: 20px;
+}
+  }
+ </style>
+ <body>
+   <div>
+      <input id="town" class="inputStyle"  type="text" placeholder="Enter a city to get the available houses (kicukiro,nyarungenge,gasabo)"></input>
+      <button class="buttonStyle" onclick="passCity()">Search</button>
+      <img id="imageDisplaying" />
+      <p id="houseAddressInText"></p>
+      <p id="housePriceInText"></p>
+      <p id="houseTestimonialInText"></p>
+   </div>
+   <script>
+   var NYARUNGENGE = {
+     house : {
+       house1 : {
+          images : {
+             srcone : "./img1.jpg",
+             srctwo : "./img2.jpg"
+          },
+          address : {
+            province : "kigali",
+            district : "nyarungenge"
+          },
+          price : {
+            homeprice : "rfw 400,000,000"
+          },
+          testimonial : {
+            agent : "Why not live in a home where you always feel like your on vacation? The beautiful rear yard is an escape from the every day hustle and bustle. Our community, Chapel Trail is a family oriented neighborhood. We have made lifelong friends here as we've watched our children grow up playing soccer in the well maintained soccer parks, swimming and playing water polo in the olympic sized pool at the high school and participating in many community events."
+          }
+       }
+     }
+   };
+   var KICUKIRO = {
+     house : {
+     house1 : {
+        images : {
+           srcone : "./img7.jpg",
+           srctwo : "./img4.jpg"
+        },
+        address : {
+          province : "kigali",
+          district : "kicukiro"
+        },
+        price : {
+          homeprice : "rfw 600,000,000"
+        },
+        testimonial : {
+          agent : "Why not live in a home where you always feel like your on vacation? The beautiful rear yard is an escape from the every day hustle and bustle. Our community, Chapel Trail is a family oriented neighborhood. We have made lifelong friends here as we've watched our children grow up playing soccer in the well maintained soccer parks, swimming and playing water polo in the olympic sized pool at the high school and participating in many community events."
+        }
+     }
+   }
+   };
+   var GASABO = {
+     house : {
+     house1 : {
+        images : {
+           srcone : "./img5.jpg",
+           srctwo : "./img6.jpg"
+        },
+        address : {
+          province : "kigali",
+          district : "gasabo"
+        },
+        price : {
+          homeprice : "rfw 200,000,000"
+        },
+        testimonial : {
+          agent : "Why not live in a home where you always feel like your on vacation? The beautiful rear yard is an escape from the every day hustle and bustle. Our community, Chapel Trail is a family oriented neighborhood. We have made lifelong friends here as we've watched our children grow up playing soccer in the well maintained soccer parks, swimming and playing water polo in the olympic sized pool at the high school and participating in many community events."
+        }
+     }
+   }
+   };
+   function passCity () {
+     var city = document.getElementById("town").value;
+     linearSearch(city);
+   }
+   function linearSearch (find){
+        var houseData = {
+             array : ["nyarungenge","kicukiro","gasabo"]
+        };
+         var arrayToSearch = houseData.array;
+         var search = find;
+         for (var i = 0; i < arrayToSearch.length; i++) {
+           if (arrayToSearch[i] === search) {
+              navigate(arrayToSearch[i]);
+           };
+         };
+         };
+    function navigate(district) {
+      var details = district;
+      if (details === "gasabo") {
+        // images data return
+        var data = GASABO.house.house1.images.srcone;
+        var imageDisplay = document.getElementById("imageDisplaying");
+        imageDisplay.src = data;
+        // address data return
+        var province = GASABO.house.house1.address.province;
+        var district = GASABO.house.house1.address.district;
+        var houseDetails = document.getElementById("houseAddressInText");
+        houseDetails.innerHTML = province + '</br>' + district;
+        // price data return
+        var prices = GASABO.house.house1.price.homeprice;
+        var housePricingInText = document.getElementById("housePriceInText");
+        housePricingInText.innerHTML = prices;
+        // testimonial data return
+        var brokers = GASABO.house.house1.testimonial.agent;
+        var houseTestimoniesInText = document.getElementById("houseTestimonialInText");
+        houseTestimoniesInText.innerHTML = brokers;
+      }
+      else if (details === "nyarungenge") {
+           // images data return
+           var data = NYARUNGENGE.house.house1.images.srcone;
+           var imageDisplay = document.getElementById("imageDisplaying");
+           imageDisplay.src = data;
+           // address data return
+           var province = NYARUNGENGE.house.house1.address.province;
+           var district = NYARUNGENGE.house.house1.address.district;
+           var houseDetails = document.getElementById("houseAddressInText");
+           houseDetails.innerHTML = province + '</br>' + district;
+           // price data return
+           var prices = NYARUNGENGE.house.house1.price.homeprice;
+           var housePricingInText = document.getElementById("housePriceInText");
+           housePricingInText.innerHTML = prices;
+           // testimonial data return
+           var brokers = NYARUNGENGE.house.house1.testimonial.agent;
+           var houseTestimoniesInText = document.getElementById("houseTestimonialInText");
+           houseTestimoniesInText.innerHTML = brokers;
+      }
+      else if (details === "kicukiro") {
+           // images data return
+           var data = KICUKIRO.house.house1.images.srcone;
+           var imageDisplay = document.getElementById("imageDisplaying");
+           imageDisplay.src = data;
+           // address data return
+           var province = KICUKIRO.house.house1.address.province;
+           var district = KICUKIRO.house.house1.address.district;
+           var houseDetails = document.getElementById("houseAddressInText");
+           houseAddressInText.innerHTML = province + '</br>' + district;
+           // price data return
+           var prices = KICUKIRO.house.house1.price.homeprice;
+           var housePricingInText = document.getElementById("housePriceInText");
+           housePricingInText.innerHTML = prices;
+           // testimonial data return
+           var brokers = KICUKIRO.house.house1.testimonial.agent;
+           var houseTestimoniesInText = document.getElementById("houseTestimonialInText");
+           houseTestimoniesInText.innerHTML = brokers;
+      }
+      else return -1;
+    }
+   </script>
+ </body>
+</html>
