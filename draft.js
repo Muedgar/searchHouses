@@ -90,7 +90,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Modal Header</h2>
+      <h2>Modal Heading</h2>
     </div>
     <div class="modal-body">
       <p>Some text in the Modal Body</p>
